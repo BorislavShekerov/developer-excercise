@@ -1,6 +1,6 @@
 # Developer Exercise
 
-This exercise is designed to demonstrate a candidate's abilities across a range of competencies in software development with Node + Typescript.
+This exercise is designed to demonstrate a candidate's abilities across a range of competencies in software development with Node + Javascript/Typescript (extra points for types).
 
 ## Instructions
 
