@@ -52,6 +52,7 @@ You are free to make your solution to this exercise as simple or as complicated 
 
 - Caching layer
 - Database storage
+- Object-oriented patterns
 - Containerization
 - Unit testing
 - Integration testing
