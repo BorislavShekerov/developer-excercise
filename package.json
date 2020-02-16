@@ -1,0 +1,25 @@
+{
+  "name": "developer-exercise",
+  "version": "2.0.0",
+  "description": "ABX Developer Exercise",
+  "scripts": {
+    "start": "ts-node ./src/index.ts",
+    "start:dev": "ts-node-dev ./src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bullioncapital/developer-exercise.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/bullioncapital/developer-exercise#readme",
+  "devDependencies": {
+    "ts-node-dev": "^1.0.0-pre.44"
+  },
+  "dependencies": {
+    "@types/node": "^13.7.0",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  }
+}
