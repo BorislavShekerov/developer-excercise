@@ -5,7 +5,7 @@ This exercise is designed to demonstrate a candidate's abilities across a range 
 ## Instructions
 
 1. Fork the repository
-2. Implement a solution of the `Requirements`
+2. Implement a solution of the `Requirements` (feel free to use any helper packages/frameworks that you think think will be of help)
 3. Share the forked repository
 
 ## "Business" Requirements
