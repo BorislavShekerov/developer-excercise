@@ -5,8 +5,7 @@ import { AppService } from './app.service';
 import { ItemModule } from './item/item.module';
 import { InputDealModule } from './inputdeal/inputdeal.module';
 import { BillModule } from './bill/bill.module';
-import { configService } from './config/config.service';
-import { Connection, ConnectionOptions } from 'typeorm';
+import { ConnectionOptions } from 'typeorm';
 
 @Module({})
 export class AppModule {

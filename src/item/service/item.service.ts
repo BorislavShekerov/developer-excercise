@@ -13,7 +13,6 @@ export class ItemService {
     private readonly itemRepo: Repository<Item>
   ) {}
 
-
   async getAllItems(): Promise<ItemDto[]> {
     const items = await this.itemRepo.find();
     return toItemDto(items);
@@ -52,7 +51,7 @@ export class ItemService {
   }
 
   async deleteItem(id: string): Promise<void> {
-    let item: Item = await this.findItemById(id);
+    const item: Item = await this.findItemById(id);
 
     this.isItemExist(item);
 

@@ -4,7 +4,6 @@ import {
   Param,
   Post,
   Body,
-  Put,
   Delete,
   Req,
   HttpCode,
@@ -33,10 +32,9 @@ export class BillController {
     return await this.billService.createBill(createBill);
   }
 
-  //TODO Delete bill
-  // @Delete(':id')
-  // @HttpCode(204)
-  // async delete(@Param('id') id: string): Promise<void> {
-  //   await this.billService.deleteItem(id);
-  // }
+  @Delete(':id')
+  @HttpCode(204)
+  async delete(@Param('id') id: string): Promise<void> {
+    await this.billService.deleteBill(id);
+  }
 }

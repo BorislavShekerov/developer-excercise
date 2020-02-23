@@ -2,7 +2,6 @@ import { Item } from "src/item/entity/item.entity";
 import { ItemDto } from "src/item/dto/item.dto";
 import { ItemCreateDto } from "src/item/dto/item.create.dto";
 
-
 export const toItemDto = (items: Item[]): ItemDto[] => {
   let itemsDto: ItemDto[] = items.map(item => {
     const itemDto: ItemDto = {
@@ -26,7 +25,6 @@ export const createDtoToItemEntity = (createItemDto: ItemCreateDto): Item => {
 
   return item;
 }
-
 
 export const dtoToItemEntity = (id: string, itemDto: ItemDto): Item => {
   const item = new Item();

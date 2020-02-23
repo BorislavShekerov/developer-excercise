@@ -8,7 +8,6 @@ export const toInputDealDto = (inputDeals: InputDeal[]): InputDealDto[] => {
     inputDealDto.id = inputDeal.id,
     inputDealDto.nameOfDeal = inputDeal.nameOfDeal
     
-
     return inputDealDto;
   });
 
