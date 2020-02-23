@@ -1,60 +1,75 @@
-# Developer Exercise
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
+</p>
 
-This exercise is designed to demonstrate a candidate's abilities across a range of competencies in software development with Node + Javascript/Typescript (extra points for types).
+[travis-image]: https://api.travis-ci.org/nestjs/nest.svg?branch=master
+[travis-url]: https://travis-ci.org/nestjs/nest
+[linux-image]: https://img.shields.io/travis/nestjs/nest/master.svg?label=linux
+[linux-url]: https://travis-ci.org/nestjs/nest
+  
+  <p align="center">A progressive <a href="http://nodejs.org" target="blank">Node.js</a> framework for building efficient and scalable server-side applications, heavily inspired by <a href="https://angular.io" target="blank">Angular</a>.</p>
+    <p align="center">
+<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/dm/@nestjs/core.svg" alt="NPM Downloads" /></a>
+<a href="https://travis-ci.org/nestjs/nest"><img src="https://api.travis-ci.org/nestjs/nest.svg?branch=master" alt="Travis" /></a>
+<a href="https://travis-ci.org/nestjs/nest"><img src="https://img.shields.io/travis/nestjs/nest/master.svg?label=linux" alt="Linux" /></a>
+<a href="https://coveralls.io/github/nestjs/nest?branch=master"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#5" alt="Coverage" /></a>
+<a href="https://gitter.im/nestjs/nestjs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge"><img src="https://badges.gitter.im/nestjs/nestjs.svg" alt="Gitter" /></a>
+<a href="https://opencollective.com/nest#backer"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
+<a href="https://opencollective.com/nest#sponsor"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
+  <a href="https://paypal.me/kamilmysliwiec"><img src="https://img.shields.io/badge/Donate-PayPal-dc3d53.svg"/></a>
+  <a href="https://twitter.com/nestframework"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
+</p>
+  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
+  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Instructions
+## Description
 
-1. Fork the repository
-2. Implement a solution of the `Requirements` (feel free to use any helper packages/frameworks that you think think will be of help)
-3. Share the forked repository
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## "Business" Requirements
+## Installation
 
-- Create a basic Groceries Shop till which can `scan` fruits and vegetables of different types, producing a numeric result/bill in the end. Assume the currency is called `aws` and there is `100 cloud ('c' for short)` in 1 aws
-- Apart from simply adding the value of each product, the till should contain logic for the following special deals:
-  - `2 for 3` - for a given selection of items (customer buys 3 items but only pays for the value of 2 of them, the cheapest one is free). In case there are more than 3 items that are included in the `2 for 3` deal, the first 3 items are included.
-    Example Deal ["banana", "orange", "tomato"], example items scanned ["banana", "orange", "orange", "tomato"] - the tomato is not included in the discount
-  - `buy 1 get 1 half price` - for a given selection of items (if the customer buys a given product under such offer, they receive a 50% reduction in the price of a second item of the same type)
-  - `Loyalty Card 10% discount` - given a customer own a Loyalty Card they get a 10% discount of they total bill
-- The till should be `programmable`:
-  - The list of items supported by the till should be extensible i.e. it should be possible to add a new item with a given "value", "name"
-  - Once a new item is added to the till, the administrator should be able to add it to any of the 3 special deals defined above
+```bash
+$ npm install
+```
 
-### Example:
+## Running the app
 
-Input groceries:
+```bash
+# development
+$ npm run start
 
-- "apple" - 50c
-- "banana" - 40c
-- "tomato" - 30c
-- "potato" - 26c
+# watch mode
+$ npm run start:dev
 
-Input deals:
-`2 for 3` - ["apple", "banana", "tomato"]
-`buy 1 get 1 half price` - potato
+# production mode
+$ npm run start:prod
+```
 
-Example scanned customer basket: "apple", "banana", "banana", "potato", "tomato", "banana", "potato"
+## Test
 
-Expected Output: `1 aws and 99 clouds`
+```bash
+# unit tests
+$ npm run test
 
-## Grading
+# e2e tests
+$ npm run test:e2e
 
-You will be scored on the following:
+# test coverage
+$ npm run test:cov
+```
 
-- Code cleanliness and ease of understandability
-- Code reusability
-- Code modularity (i.e. ease of extension)
-- Documentation
+## Support
 
-## Demonstrable concepts
+Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-You are free to make your solution to this exercise as simple or as complicated as you want based off the above criteria. At least three (3) of the below concepts _must_ be demonstrated in your implementation, but we recommend implementing as many as possible to adequately demonstrate your abilities.
+## Stay in touch
 
-- Caching layer
-- Database storage
-- Object-oriented patterns
-- Containerization
-- Unit testing
-- Integration testing
-- RESTful API
-- User interface or Application CLI
+- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
+- Website - [https://nestjs.com](https://nestjs.com/)
+- Twitter - [@nestframework](https://twitter.com/nestframework)
+
+## License
+
+  Nest is [MIT licensed](LICENSE).

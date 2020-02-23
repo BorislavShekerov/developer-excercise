@@ -1,0 +1,22 @@
+version: '3.6'
+services:
+  app:
+    container_name: app-till-exercise-container
+    volumes:
+      - .:/app
+    restart: always
+    build: .
+    ports:
+      - 3000:3000
+    command: "npm run start:dev"
+    depends_on:
+      - db
+  db:
+    container_name: db-till-exercise-container
+    image: postgres
+    env_file: .env
+    volumes:
+      - ./db/initdb.d:/docker-entrypoint-initdb.d
+    ports:
+      - 5432:5432
+    restart: unless-stopped
