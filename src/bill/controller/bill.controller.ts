@@ -17,7 +17,7 @@ export class BillController {
   constructor(private readonly billService: BillService) {}
 
   @Get()
-  async findAll(@Req() req: any): Promise<BillDto[]> {
+  async findAll(): Promise<BillDto[]> {
     const inputDeals = await this.billService.getAllBills();
     return inputDeals;
   }
