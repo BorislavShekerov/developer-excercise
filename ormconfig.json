@@ -1,0 +1,19 @@
+{
+  "name": "development",
+  "type": "postgres",
+  "host": "db-till-exercise-container",
+  "port": 5432,
+  "username": "postgres",
+  "password": "mysecretpassword",
+  "database": "till_database",
+  "entities": ["dist/**/*.entity{.ts,.js}"],
+  "migrations": ["src/migration/**/*.{.ts,.js}"],
+  "synchronize": true,
+  "subscribers":
+       ["src/subscriber/**/*.ts", "dist/subscriber/**/*.js"],
+  "cli": {
+    "entitiesDir": "src",
+    "migrationsDir": "src/migration",
+    "subscribersDir": "src/subscriber"
+  }
+}
