@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Till</title>
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Bootstrap4 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- VueJS -->
+    <script src="https://unpkg.com/vue@next" defer></script>
+
+    <!-- My JS -->
+    <script src="js/app.js" defer></script>
+
+</head>
+
+<body>
+    <div class="container-fluid m-0 p-0" id="app">
+        <header>
+            <h1 class="display-2 mb-5 text-center">Shopping Till</h1>
+            <h2 class="display-4 mb-4 text-center">Scan item:</h2>
+        </header>
+
+        <section class="products">
+            <button @click="addGrocery('Apple', 25)" class="product mx-auto">Apple</button>
+            <button @click="addGrocery('Banana', 35)" class="product mx-auto">Banana</button>
+            <button @click="addGrocery('Tomato', 20)" class="product mx-auto">Tomato</button>
+            <button @click="addGrocery('Potato', 10)" class="product mx-auto">Potato</button>
+            <button @click="addGrocery('Asparigus', 40)" class="product mx-auto">Asparigus</button>
+        </section>
+
+        <section class="promos mx-auto">
+            <h2 class="display-4 mb-4 text-center">Choose promos</h2>
+            <div class="promo">
+                <h5>2 for 3</h5>
+
+                <div class="mb-2">
+                    <span>Apple </span>
+                    <input @click="addTwoForThree('Apple')" type="checkbox">
+                </div>
+
+                <div class="mb-2">
+                    <span>Banana </span>
+                    <input @click="addTwoForThree('Banana')" type="checkbox">
+                </div>
+
+                <div class="mb-2">
+                    <span>Tomato </span>
+                    <input @click="addTwoForThree('Tomato')" type="checkbox">
+                </div>
+
+                <div class="mb-2">
+                    <span>Potato </span>
+                    <input @click="addTwoForThree('Potato')" type="checkbox">
+                </div>
+
+                <div class="mb-2">
+                    <span>Asparigus </span>
+                    <input @click="addTwoForThree('Asparigus')" type="checkbox">
+                </div>
+
+            </div>
+
+            <div class="promo">
+                <h5>Buy 1 get 1 half price</h5>
+
+                <div class="mb-2">
+                    <span>Apple </span>
+                    <input @click="addHalfPriceOnSecond('Apple')" type="checkbox">
+                </div>
+
+                <div class="mb-2">
+                    <span>Banana </span>
+                    <input @click="addHalfPriceOnSecond('Banana')" type="checkbox">
+                </div>
+
+                <div class="mb-2">
+                    <span>Tomato </span>
+                    <input @click="addHalfPriceOnSecond('Tomato')" type="checkbox">
+                </div>
+
+                <div class="mb-2">
+                    <span>Potato </span>
+                    <input @click="addHalfPriceOnSecond('Potato')" type="checkbox">
+                </div>
+
+                <div class="mb-2">
+                    <span>Asparigus </span>
+                    <input @click="addHalfPriceOnSecond('Asparigus')" type="checkbox">
+                </div>
+            </div>
+        </section>
+
+        <section v-if="groceries.length > 0" class="till mx-auto text-center">
+            <h3 class="pt-3">Your Tab:</h3>
+            <ul class="p-3">
+                <li v-for="grocery in groceries" class="d-flex justify-content-between">
+                    <span class="groceryName mr-5">{{ grocery.name }}</span>
+                    <span class="groceryPrice ml-5">{{ grocery.price }}c</span>
+                </li>
+                <hr>
+                <li class="d-flex justify-content-between">
+                    <span>Total:</span>
+                    <span>{{ Math.floor(tillTotal / 100)}}.{{ tillTotal % 100 }} aws</span>
+
+                </li>
+            </ul>
+        </section>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Bootstrap + JQuery + Popper -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
