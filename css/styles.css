@@ -1,0 +1,51 @@
+.product {
+    display: block;
+    height: 55px;
+    width: 220px;
+    margin-bottom: 15px;
+    background-color: #60dbc1;
+    color: white;
+    font-size: 17px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.product:hover {
+    background-color: #0bc58d;
+}
+
+.product:focus {
+    outline: none;
+}
+
+.till {
+    width: 300px;
+    box-shadow: 0px 0px 5px 1px rgb(173, 173, 173);
+    border-radius: 5px;
+}
+
+.promos {
+    width: 450px;
+    margin-bottom: 30px;
+}
+
+.promo {
+    display: inline-block;
+    margin-left: 20px;
+    width: 190px;
+    height: 200px;
+    background-color: rgb(103, 112, 243);
+    color: white;
+    text-align: center;
+    padding-top: 12.5px;
+    border-radius: 12px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
