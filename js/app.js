@@ -57,21 +57,31 @@ const vueApp = Vue.createApp({
         },
 
         filterAddHalfPriceOnSecond(groceryName) {
-            let checker = true;
-            let checker2 = true;
             let counter = 0;
             let counter2 = 0;
-            let price = 0;
-            let price2 = 0;
+            let price;
+
+            switch (groceryName) {
+                case 'Apple':
+                    price = 25;
+                    break;
+                case 'Banana':
+                    price = 35;
+                    break;
+                case 'Tomato':
+                    price = 20;
+                    break;
+                case 'Potato':
+                    price = 10;
+                    break;
+                case 'Asparigus':
+                    price = 40;
+                    break;
+            }
             if (this.halfPriceOnSecond.includes(groceryName)) {
                 for (let i = 0; i < this.groceries.length; i++) {
 
                     if (this.groceries[i].name == groceryName) {
-                        if (checker) {
-                            price = this.groceries[i].price;
-                            checker = false;
-                        }
-
                         counter++;
                         if (counter == 2) {
                             this.groceries[i].price = Math.floor(price / 2);
@@ -83,13 +93,9 @@ const vueApp = Vue.createApp({
             } else {
                 for (let i = 0; i < this.groceries.length; i++) {
                     if (this.groceries[i].name == groceryName) {
-                        if (checker2) {
-                            price2 = this.groceries[i].price;
-                            checker2 = false;
-                        }
                         counter2++;
                         if (counter2 == 2) {
-                            this.groceries[i].price = price2;
+                            this.groceries[i].price = price;
                             counter2 = 0;
                         }
                     }
