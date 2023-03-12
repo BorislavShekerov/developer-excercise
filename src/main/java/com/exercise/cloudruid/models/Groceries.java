@@ -1,5 +1,6 @@
 package com.exercise.cloudruid.models;
 
+import com.exercise.cloudruid.utils.enums.Deals;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -19,9 +20,6 @@ public class Groceries {
     @Column(name = "price")
     private int price;
 
-    @Column(name = "2_for_3")
-    private boolean twoForThree;
-
-    @Column(name = "buy_1_get_1_half_price")
-    private boolean buyOneGetOneHalfPrice;
+    @Column(name = "deal")
+    private Enum<Deals> deal;
 }
