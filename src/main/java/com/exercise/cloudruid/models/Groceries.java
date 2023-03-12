@@ -2,7 +2,6 @@ package com.exercise.cloudruid.models;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Setter;
 
 @Data
 @Entity(name = "Groceries")
@@ -18,11 +17,11 @@ public class Groceries {
     private String name;
 
     @Column(name = "price")
-    private @Setter int price;
+    private int price;
 
     @Column(name = "2_for_3")
-    private @Setter boolean twoForThree;
+    private boolean twoForThree;
 
     @Column(name = "buy_1_get_1_half_price")
-    private @Setter boolean buyOneGetOneHalfPrice;
+    private boolean buyOneGetOneHalfPrice;
 }
