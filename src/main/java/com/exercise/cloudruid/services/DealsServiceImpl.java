@@ -8,9 +8,7 @@ import com.exercise.cloudruid.utils.exceptions.ItemDealException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class DealsServiceImpl implements DealsService {
@@ -45,46 +43,10 @@ public class DealsServiceImpl implements DealsService {
     }
 
     @Override
-    public void removeFromPomotion(List<String> itemNames) {
+    public void removeFromPromotion(List<String> itemNames) {
         for (String itemName : itemNames) {
             Groceries item = groceriesService.getByName(itemName);
             item.setDeal(Deals.NONE);
         }
-    }
-
-    @Override
-    public int twoForThree(List<Groceries> items) {
-        if (items.get(0).getPrice() < items.get(1).getPrice()
-                && items.get(0).getPrice() < items.get(2).getPrice()) {
-            return items.get(1).getPrice() + items.get(2).getPrice();
-        } else if (items.get(1).getPrice() < items.get(2).getPrice()) {
-            return items.get(0).getPrice() + items.get(2).getPrice();
-        } else {
-            return items.get(0).getPrice() + items.get(1).getPrice();
-        }
-    }
-
-    @Override
-    public int buyOneGetOneHalfPrice(List<Groceries> items) {
-        if (items.size() == 0)
-            return 0;
-        else if (items.size() == 1)
-            return items.get(0).getPrice();
-        int finalPrice = 0;
-        Map<String, Integer> promoCount= new HashMap<>();
-        for (Groceries item : items) {
-            if (!promoCount.containsKey(item.getName()))
-                promoCount.put(item.getName(), 1);
-            else
-                promoCount.put(item.getName(), promoCount.get(item.getName())+1);
-        }
-        for (Map.Entry<String, Integer> s : promoCount.entrySet()) {
-            for (int i = 0; i < s.getValue(); i++) {
-                if (promoCount.get(s)%2 == 1)
-                    finalPrice += groceriesService.getByName(s.getKey()).getPrice();
-                else finalPrice += groceriesService.getByName(s.getKey()).getPrice()/2;
-            }
-        }
-        return finalPrice;
     }
 }
