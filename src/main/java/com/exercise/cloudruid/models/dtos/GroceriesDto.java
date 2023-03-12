@@ -9,5 +9,5 @@ public class GroceriesDto {
 
     private String name;
 
-    private double price;
+    private int price;
 }

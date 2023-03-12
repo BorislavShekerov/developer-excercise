@@ -8,8 +8,6 @@ public interface GroceriesService {
 
     List<Groceries> getAll();
 
-    List<Groceries> getByPrice(int price, String lowerOrHigher);
-
     Groceries getById(int id);
 
     Groceries getByName(String name);

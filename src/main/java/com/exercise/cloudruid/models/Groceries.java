@@ -18,7 +18,7 @@ public class Groceries {
     private String name;
 
     @Column(name = "price")
-    private @Setter double price;
+    private @Setter int price;
 
     @Column(name = "2_for_3")
     private @Setter boolean twoForThree;

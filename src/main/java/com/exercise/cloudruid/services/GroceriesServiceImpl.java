@@ -26,11 +26,6 @@ public class GroceriesServiceImpl implements GroceriesService {
     }
 
     @Override
-    public List<Groceries> getByPrice(int price, String lowerOrHigher) {
-        return null;
-    }
-
-    @Override
     public Groceries getById(int id) {
         return repository.findById(id)
                 .orElseThrow(() -> new GrocerieNotFoundException("Item with id: " + id + " does not exist."));
