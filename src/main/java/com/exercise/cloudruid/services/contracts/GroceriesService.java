@@ -14,6 +14,8 @@ public interface GroceriesService {
 
     void create(Groceries item);
 
+    void createFromList(List<Groceries> items);
+
     Groceries update(Groceries item);
 
     void delete(Groceries item);
