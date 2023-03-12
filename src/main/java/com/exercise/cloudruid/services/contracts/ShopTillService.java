@@ -8,11 +8,11 @@ public interface ShopTillService {
 
      List<Groceries> viewCart();
 
-    void addToCart(Groceries item);
+    void addToCart(String itemName);
 
-    void removeFromCart(Groceries items);
+    void removeFromCart(String itemName);
 
-    void scanListOfItems(List<Groceries> items);
+    void scanListOfItems(List<String> items);
 
     void emptyShoppingCart();
 
