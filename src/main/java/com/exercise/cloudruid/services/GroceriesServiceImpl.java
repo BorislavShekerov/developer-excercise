@@ -37,7 +37,6 @@ public class GroceriesServiceImpl implements GroceriesService {
                 .orElseThrow(() -> new GrocerieNotFoundException("Item with name: " + name + " does not exist."));
     }
 
-    //TODO this method might be pointless
     @Override
     public void create(Groceries item) {
         if (repository.existsByName(item.getName()))
@@ -49,10 +48,7 @@ public class GroceriesServiceImpl implements GroceriesService {
     @Override
     public void createFromList(List<Groceries> items) {
         for (Groceries item : items) {
-            if (repository.existsByName(item.getName()))
-                throw new ItemExistsException("Item with name: " + item.getName() + " already exists");
-
-            repository.saveAndFlush(item);
+            create(item);
         }
     }
 
