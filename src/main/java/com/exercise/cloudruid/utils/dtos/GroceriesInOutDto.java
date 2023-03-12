@@ -9,7 +9,7 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 @Setter
 @Getter
-public class GroceriesDto {
+public class GroceriesInOutDto {
 
     @NotEmpty(message = "Product name cannot be empty!")
     private String name;
