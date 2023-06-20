@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:tc:mysql:5.7.34:///testdb
+  sql:
+    init:
+      mode: never

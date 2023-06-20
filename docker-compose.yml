@@ -1,0 +1,12 @@
+services:
+  database:
+    container_name: database
+    image: mysql
+    volumes:
+      - data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    env_file:
+      - database.env # MYSQL_DATABASE: x | MYSQL_ROOT_PASSWORD: y
+volumes:
+  data:
