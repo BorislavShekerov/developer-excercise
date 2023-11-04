@@ -14,7 +14,7 @@ namespace Data.Models
         [Key]
         public Guid Id { get; set; } = new Guid();   
         
-        public virtual IEnumerable<GroseryItem> Items { get; set; }=new List<GroseryItem>();
+        public virtual List<GroseryItem> Items { get; set; }=new List<GroseryItem>();
         public DealTypes DealType { get; set; }
     }
 }

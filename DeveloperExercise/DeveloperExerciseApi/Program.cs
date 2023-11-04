@@ -1,8 +1,10 @@
+using Core.Discounts;
 using Core.Interfaces;
 using Core.Services;
 using Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
@@ -28,6 +30,11 @@ namespace DeveloperExerciseApi
             builder.Services.AddSwaggerGen();
             builder.Services.AddTransient<IManagerService, ManagerService>();
             builder.Services.AddTransient<DbContext, ApplicationDbContext>();
+            builder.Services.AddScoped<IClientService,ClientService>();
+            builder.Services.AddTransient<BuyOneGetOneHalf, BuyOneGetOneHalf>();
+            builder.Services.AddTransient<TwoForThree, TwoForThree>();
+            builder.Services.AddSingleton<IGrosaryTillService, GrosaryTillService>();
+            
             builder.Services.AddSwaggerGen(options =>
             {
                 options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme()
