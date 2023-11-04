@@ -87,3 +87,9 @@ C:\Users\Owner\Desktop\DeveloperExcersise\DeveloperExercise\DeveloperExerciseApi
 C:\Users\Owner\Desktop\DeveloperExcersise\DeveloperExercise\DeveloperExerciseApi\obj\Debug\net6.0\DeveloperExerciseApi.pdb
 C:\Users\Owner\Desktop\DeveloperExcersise\DeveloperExercise\DeveloperExerciseApi\obj\Debug\net6.0\DeveloperExerciseApi.genruntimeconfig.cache
 C:\Users\Owner\Desktop\DeveloperExcersise\DeveloperExercise\DeveloperExerciseApi\obj\Debug\net6.0\ref\DeveloperExerciseApi.dll
+C:\Users\Owner\Desktop\DeveloperExcersise\DeveloperExercise\DeveloperExerciseApi\bin\Debug\net6.0\Core.dll
+C:\Users\Owner\Desktop\DeveloperExcersise\DeveloperExercise\DeveloperExerciseApi\bin\Debug\net6.0\Core.pdb
+C:\Users\Owner\Desktop\DeveloperExcersise\DeveloperExercise\DeveloperExerciseApi\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Owner\Desktop\DeveloperExcersise\DeveloperExercise\DeveloperExerciseApi\bin\Debug\net6.0\Scrutor.dll
+C:\Users\Owner\Desktop\DeveloperExcersise\DeveloperExercise\DeveloperExerciseApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll
+C:\Users\Owner\Desktop\DeveloperExcersise\DeveloperExercise\DeveloperExerciseApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll

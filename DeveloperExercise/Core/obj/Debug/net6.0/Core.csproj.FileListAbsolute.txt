@@ -9,3 +9,7 @@ C:\Users\Owner\Desktop\DeveloperExcersise\DeveloperExercise\Core\obj\Debug\net6.
 C:\Users\Owner\Desktop\DeveloperExcersise\DeveloperExercise\Core\obj\Debug\net6.0\refint\Core.dll
 C:\Users\Owner\Desktop\DeveloperExcersise\DeveloperExercise\Core\obj\Debug\net6.0\Core.pdb
 C:\Users\Owner\Desktop\DeveloperExcersise\DeveloperExercise\Core\obj\Debug\net6.0\ref\Core.dll
+C:\Users\Owner\Desktop\DeveloperExcersise\DeveloperExercise\Core\bin\Debug\net6.0\Data.dll
+C:\Users\Owner\Desktop\DeveloperExcersise\DeveloperExercise\Core\bin\Debug\net6.0\Data.pdb
+C:\Users\Owner\Desktop\DeveloperExcersise\DeveloperExercise\Core\obj\Debug\net6.0\Core.csproj.AssemblyReference.cache
+C:\Users\Owner\Desktop\DeveloperExcersise\DeveloperExercise\Core\obj\Debug\net6.0\Core.csproj.CopyComplete

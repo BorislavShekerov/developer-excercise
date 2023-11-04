@@ -23,6 +23,7 @@ namespace Data
 
         public DbSet<GroseryItem> GroseryItems { get; set; }
         public DbSet<SpecialDeal> SpecialDeals { get; set; }
+        public DbSet<Manager> Managers { get; set; }
         
     }
 }
