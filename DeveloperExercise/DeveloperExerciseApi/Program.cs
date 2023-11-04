@@ -61,7 +61,7 @@ namespace DeveloperExerciseApi
             }
 
             app.UseHttpsRedirection();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
 

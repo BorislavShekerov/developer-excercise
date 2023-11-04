@@ -12,6 +12,22 @@ namespace Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Managers",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PasswordHash = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    PasswordSalt = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Managers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "SpecialDeals",
                 columns: table => new
                 {
@@ -28,9 +44,9 @@ namespace Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     PriceInClouds = table.Column<int>(type: "int", nullable: false),
-                    SpecialDealId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    SpecialDealId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -39,7 +55,8 @@ namespace Data.Migrations
                         name: "FK_GroseryItems_SpecialDeals_SpecialDealId",
                         column: x => x.SpecialDealId,
                         principalTable: "SpecialDeals",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -53,6 +70,9 @@ namespace Data.Migrations
         {
             migrationBuilder.DropTable(
                 name: "GroseryItems");
+
+            migrationBuilder.DropTable(
+                name: "Managers");
 
             migrationBuilder.DropTable(
                 name: "SpecialDeals");

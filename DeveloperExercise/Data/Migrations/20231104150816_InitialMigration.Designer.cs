@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231104122114_AddManagerMigration")]
-    partial class AddManagerMigration
+    [Migration("20231104150816_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,7 +39,7 @@ namespace Data.Migrations
                     b.Property<int>("PriceInClouds")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("SpecialDealId")
+                    b.Property<Guid>("SpecialDealId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -47,6 +47,37 @@ namespace Data.Migrations
                     b.HasIndex("SpecialDealId");
 
                     b.ToTable("GroseryItems");
+                });
+
+            modelBuilder.Entity("Data.Models.Manager", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Managers");
                 });
 
             modelBuilder.Entity("Data.Models.SpecialDeal", b =>
@@ -67,7 +98,9 @@ namespace Data.Migrations
                 {
                     b.HasOne("Data.Models.SpecialDeal", null)
                         .WithMany("Items")
-                        .HasForeignKey("SpecialDealId");
+                        .HasForeignKey("SpecialDealId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Data.Models.SpecialDeal", b =>

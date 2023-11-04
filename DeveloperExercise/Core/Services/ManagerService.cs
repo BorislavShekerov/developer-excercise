@@ -1,6 +1,7 @@
 ﻿using Core.Dtos.Request;
 using Core.Dtos.Response;
 using Core.Interfaces;
+using Data.Enums;
 using Data.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -19,6 +20,47 @@ namespace Core.Services
         {
             _context = context;
         }
+
+        public async Task<ItemDtoRes> AddItem(ItemDtoReq item)
+        {
+            GroseryItem entity = new GroseryItem()
+            {
+                Name = item.Name,
+                PriceInClouds = item.Price,
+
+            };
+            await _context.AddAsync(entity);
+            await _context.SaveChangesAsync();
+            return new ItemDtoRes
+            {
+                Name=entity.Name,
+                Price=entity.PriceInClouds,
+            };
+
+        }
+
+        public async Task<ItemDtoRes> AddItemToDeal(string itemName, int dealType)
+        {
+            var deal = await _context.Set<SpecialDeal>().Where(x => x.DealType == (DealTypes)dealType).FirstOrDefaultAsync();
+            GroseryItem entity = await _context.Set<GroseryItem>().Where(x => x.Name == itemName).FirstOrDefaultAsync();
+            if (entity==null)
+            {
+                throw new ArgumentException("Item with this name doesn't exist!");
+            }
+            entity.SpecialDealId = deal.Id;
+            
+            _context.Update<GroseryItem>(entity);
+            await _context.SaveChangesAsync();
+            return new ItemDtoRes
+            {
+                Name = entity.Name,
+                Price = entity.PriceInClouds,
+                DealId = entity.SpecialDealId.ToString(),
+            };
+
+          
+        }
+
         public async Task<ManagerResDto> Login(ManagerLogInDto manager)
         {
             var managerEntity = await _context.Set<Manager>().Where(x => x.Email == manager.Email).FirstOrDefaultAsync();

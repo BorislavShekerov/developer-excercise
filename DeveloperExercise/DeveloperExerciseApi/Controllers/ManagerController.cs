@@ -1,6 +1,7 @@
 ﻿using Core.Dtos.Request;
 using Core.Dtos.Response;
 using Core.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -37,10 +38,10 @@ namespace DeveloperExerciseApi.Controllers
             return Ok(result);
         }
         [HttpPost("login")]
-        [ProducesResponseType(typeof(ManagerResDto),StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ManagerResDto), StatusCodes.Status200OK)]
         public async Task<IActionResult> Login(ManagerLogInDto man)
         {
-            ManagerResDto result=new ManagerResDto();
+            ManagerResDto result = new ManagerResDto();
             try
             {
                 result = await _managerService.Login(man);
@@ -52,6 +53,40 @@ namespace DeveloperExerciseApi.Controllers
             }
             result.Token = CreateToken(result);
             return Ok(result);
+        }
+        [HttpPost("addItem")]
+        [ProducesResponseType(typeof(ItemDtoRes), StatusCodes.Status200OK)]
+        [Authorize(Roles = "Manager")]
+        public async Task<IActionResult> AddItem(ItemDtoReq item)
+        {
+            ItemDtoRes result=new ItemDtoRes();
+            try
+            {
+                 result = await _managerService.AddItem(item);
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
+            return Ok(result);
+        }
+        [HttpPost("addItemToDeal")]
+        [ProducesResponseType(typeof(ItemDtoRes), StatusCodes.Status200OK)]
+         [Authorize(Roles = "Manager")]
+        public async Task<IActionResult> AddItemToDeal(string itemName,int dealType)
+        {
+            ItemDtoRes result=new ItemDtoRes();
+            try
+            {
+                result = await _managerService.AddItemToDeal(itemName, dealType);
+            }
+            catch (Exception)
+            {
+
+                BadRequest();
+            }
+            return Ok(result);  
         }
         private string CreateToken(ManagerResDto client)
         {
