@@ -22,7 +22,7 @@ return (<header>
            ManagerLogin
         </NavLink>
         <NavLink 
-            to="/about"
+            to="/register"
             style={({isActive}) => isActive ? activeStyles : null}
         >
             ManagerRegister
