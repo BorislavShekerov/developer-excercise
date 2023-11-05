@@ -1,11 +1,12 @@
 import {useState,useEffect} from 'react'
 import{Link}from 'react-router-dom'
-import { getAllItems,scanItem } from '../services/customerService';
+import { getAllItems,scanItem,calculateTotal} from '../services/customerService';
 
 export default function Home (){
 
     const [items,setItems]=useState(null);
     const [scanned,setScanned] =useState([]);
+    const [total,setTotal]=useState(0);
   
     useEffect(()=>{
       getAllItems()
@@ -17,18 +18,28 @@ export default function Home (){
   
     const onScan=(e)=>{
       
-      let splited=e.target.id.split('|')
-      setScanned([...scanned,splited[0]])
-      console.log(splited[1]);
+      let splited=e.target.id.split('|');
+      setScanned([...scanned,splited[0]]);
       scanItem(splited[0],splited[1]);
       
       
     }
+    const onPay=(e)=>{
+        calculateTotal().then( (res)=>{
+            setTotal(res);
+        console.log(res);
+        setScanned([]);
+    });
+       
+    }
 
     return( <>
-        <h1 className='table'>Items Log</h1>
-        {scanned.length===0? <h2 className='table'>Scanned Items: empty</h2>: <h2 className='table'>Scanned Items: {scanned+','}</h2>}
+        <h1 className='table'>{total===0?`Total Price:0`:`Total Price: ${total.total}`}</h1>
         
+        {scanned.length===0? <h2 className='table'>Scanned Items: empty</h2>: <h2 className='table'>Scanned Items: {scanned+','}</h2>}
+       <div className='table'>
+       <Link  className='btn btn-danger'onClick={onPay} to={'/'}>Pay</Link>
+        </div> 
         <table  className="styled-table">
             <thead>
                 <tr>

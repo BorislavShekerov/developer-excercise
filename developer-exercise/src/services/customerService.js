@@ -14,3 +14,9 @@ export const scanItem=async (name,price)=>{
         method:'POST'
     });
 }
+export const calculateTotal=async ()=>{
+    const response=await fetch(`${baseUrl}calculateTotal`,{
+        method:'GET',
+    })
+    return await response.json();
+}
