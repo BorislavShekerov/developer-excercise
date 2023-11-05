@@ -25,6 +25,15 @@ namespace DeveloperExerciseApi
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("customPolicy", policy =>
+                {
+                    policy.WithOrigins("http://localhost:3000");
+                    policy.AllowAnyHeader();
+                    policy.AllowAnyMethod();
+                });
+            });
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -68,6 +77,7 @@ namespace DeveloperExerciseApi
             }
 
             app.UseHttpsRedirection();
+            app.UseCors("customPolicy");
             app.UseAuthentication();
             app.UseAuthorization();
 
