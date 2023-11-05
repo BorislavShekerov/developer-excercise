@@ -17,9 +17,10 @@ namespace Core.Discounts
 
             var prev2 = new List<GroseryItem>();
             var deal2 = specialDeals.FirstOrDefault(x => x.DealType == (DealTypes)Enum.Parse(typeof(DealTypes), "TwoForThree"));
+            var items=deal2.Items.Select(x=>x.Name).ToList();
             for (int i = 0; i < scannedItems.Count; i++)
             {
-                if (deal2 != null && deal2.Items[0].Name==scannedItems[i].Name)
+                if (deal2 != null && items.Contains(scannedItems[i].Name))
                 {
                     prev2.Add(scannedItems[i]);
                 }

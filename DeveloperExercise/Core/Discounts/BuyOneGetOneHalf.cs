@@ -16,10 +16,11 @@ namespace Core.Discounts
             sum = 0;
             var prev = new List<GroseryItem>();
             var deal = specialDeals.FirstOrDefault(x => x.DealType == (DealTypes)Enum.Parse(typeof(DealTypes), "BuyOneGetOneHalfPrice"));
+            var items = deal.Items.Select(x => x.Name).ToList();
             for (int i = 0; i < scannedItems.Count; i++)
             {
 
-                if (deal != null && deal.Items[0].Name==scannedItems[i].Name)
+                if (deal != null && items.Contains(scannedItems[i].Name))
                 {
                     prev.Add(scannedItems[i]);
                     scannedItems.Remove(scannedItems[i]);
