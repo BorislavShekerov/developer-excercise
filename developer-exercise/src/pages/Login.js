@@ -10,14 +10,15 @@ export default function Login(){
     const navigate = useNavigate();
     async function handleSubmit(e) {
         e.preventDefault()
-      await onSubmit(loginFormData)
+      await onSubmit()
     
      
     }
     const onSubmit=async()=>{
+        
       login(loginFormData.email,loginFormData.password)
       .then((res)=>{
-       // console.log(res);
+      
         userLogin(res);
         navigate("/manager");
       })

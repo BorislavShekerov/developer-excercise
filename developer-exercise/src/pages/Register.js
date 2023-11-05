@@ -1,15 +1,24 @@
 import {useState} from 'react'
-
+import { register } from '../services/managerService';
+import { useUserContext } from '../context/UserContext';
+import { useNavigate } from 'react-router-dom';
 export default function Register(){
-
+    const { userLogin } = useUserContext();
+    const navigate = useNavigate();
     const [registerFormData, setRegisterFormData] = useState({ firstname:"",lastname:"",
     email: "", password: "" })
 
     async function handleSubmit(e) {
-       
+        e.preventDefault()
+        await onSubmit()
     }
-    const onSubmit = async (values) => {
+    const onSubmit = async () => {
+        register(registerFormData.firstname,registerFormData.lastname,registerFormData.email,registerFormData.password)
+      .then((res)=>{
         
+        userLogin(res);
+        navigate("/manager");
+      })
      };
 
     function handleChange(e) {
