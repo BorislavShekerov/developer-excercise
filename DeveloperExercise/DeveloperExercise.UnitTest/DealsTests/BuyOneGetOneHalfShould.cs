@@ -32,9 +32,9 @@ namespace DeveloperExercise.UnitTest.DealsTests
                     new GroseryItem { Name="tomato",PriceInClouds=30}}}
             };
             //Act
-            deal.ApplyDiscount(ref scannedItems, ref specialDeals, ref sum);
+            var result=deal.ApplyDiscount( scannedItems,  specialDeals,  sum);
             //Assert
-            Assert.Equal(39, sum);
+            Assert.Equal(39, result);
         }
 
     }

@@ -12,7 +12,7 @@ namespace Core.Discounts
 {
     public class TwoForThree : IDiscount
     {
-        public void ApplyDiscount(ref List<GroseryItem> scannedItems, ref List<SpecialDeal> specialDeals, ref int sum)
+        public virtual int ApplyDiscount( List<GroseryItem> scannedItems,  List<SpecialDeal> specialDeals,  int sum)
         {
 
             var prev2 = new List<GroseryItem>();
@@ -43,7 +43,7 @@ namespace Core.Discounts
                     sum += item.PriceInClouds;
                 }
             }
-
+            return sum;
         }
     }
 }

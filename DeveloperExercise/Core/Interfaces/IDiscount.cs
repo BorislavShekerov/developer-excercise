@@ -10,6 +10,6 @@ namespace Core.Interfaces
 {
     public interface IDiscount
     {
-        public void ApplyDiscount(ref List<GroseryItem> scannedItems, ref List<SpecialDeal> specialDeals, ref int sum);
+        public int ApplyDiscount( List<GroseryItem> scannedItems,  List<SpecialDeal> specialDeals,  int sum);
     }
 }

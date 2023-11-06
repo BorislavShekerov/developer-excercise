@@ -20,19 +20,20 @@ namespace Core.Services
                 _discount1 = discount1;
             _discount2 = discount2;
         }
+        public int scannedCount { get => this.scannedItems.Count(); }
         public int CalculateTotal(List<SpecialDeal> specialDeals)
         {
             var sum = 0;
             
 
-            _discount1.ApplyDiscount(ref scannedItems, ref specialDeals, ref sum);
+            sum+=_discount1.ApplyDiscount( scannedItems,  specialDeals,  sum);
 
             Console.WriteLine(sum);
 
 
-            _discount2.ApplyDiscount(ref scannedItems, ref specialDeals, ref sum);
+           var result= _discount2.ApplyDiscount( scannedItems,  specialDeals,  sum);
             scannedItems.Clear();
-            return sum;
+            return result;
         }
 
         public void ScanItem(GroseryItem item)

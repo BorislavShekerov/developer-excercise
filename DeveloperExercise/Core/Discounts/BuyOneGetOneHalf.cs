@@ -11,7 +11,7 @@ namespace Core.Discounts
 {
     public class BuyOneGetOneHalf : IDiscount
     {
-        public void ApplyDiscount(ref List<GroseryItem> scannedItems, ref List<SpecialDeal> specialDeals, ref int sum)
+        public virtual int ApplyDiscount( List<GroseryItem> scannedItems,  List<SpecialDeal> specialDeals,  int sum)
         {
             sum = 0;
             var prev = new List<GroseryItem>();
@@ -39,6 +39,7 @@ namespace Core.Discounts
                 }
 
             }
+            return sum;
         }
     }
 }
