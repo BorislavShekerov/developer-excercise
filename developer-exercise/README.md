@@ -17,7 +17,7 @@
 
 # Api ScreenShots
 ![image](https://github.com/marindimitrov12/developer-excercise/assets/63950527/3ac153d2-91fe-4dc4-b777-60c14240a585)
-#ReactApp screenShots
+# ReactApp screenShots
 Homepage
 ![image](https://github.com/marindimitrov12/developer-excercise/assets/63950527/07e68a69-5870-4ac1-92cb-bfb85b2112ea)
 ![image](https://github.com/marindimitrov12/developer-excercise/assets/63950527/f6dfb7ea-f8bb-4c76-8bea-c7279b2e828f)
