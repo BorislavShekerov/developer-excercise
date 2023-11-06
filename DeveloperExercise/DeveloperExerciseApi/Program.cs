@@ -40,8 +40,8 @@ namespace DeveloperExerciseApi
             builder.Services.AddTransient<IManagerService, ManagerService>();
             builder.Services.AddTransient<DbContext, ApplicationDbContext>();
             builder.Services.AddScoped<IClientService,ClientService>();
-            builder.Services.AddTransient<BuyOneGetOneHalf, BuyOneGetOneHalf>();
-            builder.Services.AddTransient<TwoForThree, TwoForThree>();
+            builder.Services.AddTransient<IDiscount, BuyOneGetOneHalf>();
+            builder.Services.AddTransient<IDiscount, TwoForThree>();
             builder.Services.AddSingleton<IGrosaryTillService, GrosaryTillService>();
             
             builder.Services.AddSwaggerGen(options =>

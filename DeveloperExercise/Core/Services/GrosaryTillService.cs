@@ -15,10 +15,11 @@ namespace Core.Services
         private List<GroseryItem> scannedItems = new List<GroseryItem>();
         private readonly IDiscount _discount1;
         private readonly IDiscount _discount2;
-        public GrosaryTillService(BuyOneGetOneHalf discount1, TwoForThree discount2)
+        public GrosaryTillService(IEnumerable<IDiscount>discounts)
         {
-                _discount1 = discount1;
-            _discount2 = discount2;
+           
+            _discount1 = discounts.FirstOrDefault();
+            _discount2 = discounts.LastOrDefault();
         }
         public int scannedCount { get => this.scannedItems.Count(); }
         public int CalculateTotal(List<SpecialDeal> specialDeals)
