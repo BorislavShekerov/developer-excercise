@@ -1,5 +1,6 @@
-#Developer-Excercise
-#ApiInstallation
+# Developer-Excercise
+# ApiInstallation
+
 1.clone the repo.
 
 2.configure your connection string.
@@ -13,7 +14,7 @@
 
 3.change the base url in the services.
 
-#Api ScreenShots
+# Api ScreenShots
 ![image](https://github.com/marindimitrov12/developer-excercise/assets/63950527/3ac153d2-91fe-4dc4-b777-60c14240a585)
 #ReactApp screenShots
 Homepage
