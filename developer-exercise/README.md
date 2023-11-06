@@ -7,7 +7,8 @@
 
 3.run this command "Update-Database" in the Package Manager Console.
 
-#ReactApp Installation
+# ReactApp Installation
+
 1.clone the repo.
 
 2.run npm i.
