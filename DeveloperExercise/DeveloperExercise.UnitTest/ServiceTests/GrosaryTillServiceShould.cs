@@ -21,12 +21,15 @@ namespace DeveloperExercise.UnitTest.ServiceTests
             //Arrange
             var scanned = new List<GroseryItem>();
             var specialDeals = new List<SpecialDeal>();
-            var discount1 = new Mock<BuyOneGetOneHalf>();
+            var discount1 = new Mock<IDiscount>();
             var sum = 0;
+            List<IDiscount>discounts= new List<IDiscount>();
             discount1.Setup(p => p.ApplyDiscount( scanned, specialDeals, sum)).Returns(39);
-            var discount2=new Mock<TwoForThree>();
+            var discount2=new Mock<IDiscount>();
             discount2.Setup(p => p.ApplyDiscount(scanned, specialDeals, 39)).Returns(199);
-            var service = new GrosaryTillService(discount1.Object,discount2.Object);
+            discounts.Add(discount1.Object);
+            discounts.Add(discount2.Object);
+            var service = new GrosaryTillService(discounts);
 
             //Act
             var result=service.CalculateTotal(new List<SpecialDeal>());
@@ -38,9 +41,12 @@ namespace DeveloperExercise.UnitTest.ServiceTests
         public void ScanItemsWorkCorrectly()
         {
             //Arrange
-            var discount1 = new Mock<BuyOneGetOneHalf>();
-            var discount2 = new Mock<TwoForThree>();
-            var service = new GrosaryTillService(discount1.Object,discount2.Object);
+            var discount1 = new Mock<IDiscount>();
+            var discount2 = new Mock<IDiscount>();
+            List<IDiscount> discounts = new List<IDiscount>();
+            discounts.Add(discount1.Object);
+            discounts.Add(discount2.Object);
+            var service = new GrosaryTillService(discounts);
 
             //Act
             service.ScanItem(new GroseryItem { Name = "banana", PriceInClouds = 40 });
@@ -51,9 +57,12 @@ namespace DeveloperExercise.UnitTest.ServiceTests
         public void ConvertToAwsWorksCorrectly()
         {
             //Arrange
-            var discount1 = new Mock<BuyOneGetOneHalf>();
-            var discount2 = new Mock<TwoForThree>();
-            var service = new GrosaryTillService(discount1.Object, discount2.Object);
+            var discount1 = new Mock<IDiscount>();
+            var discount2 = new Mock<IDiscount>();
+            List<IDiscount> discounts = new List<IDiscount>();
+            discounts.Add(discount1.Object);
+            discounts.Add(discount2.Object);
+            var service = new GrosaryTillService(discounts);
 
             //Act
             var result = service.ConvertToAws(199);

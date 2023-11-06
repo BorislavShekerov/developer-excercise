@@ -21,6 +21,7 @@ namespace Core.Services
             _discount1 = discounts.FirstOrDefault();
             _discount2 = discounts.LastOrDefault();
         }
+        
         public int scannedCount { get => this.scannedItems.Count(); }
         public int CalculateTotal(List<SpecialDeal> specialDeals)
         {
