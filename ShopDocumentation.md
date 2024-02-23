@@ -5,7 +5,6 @@ For successfully receiving the scanned products you need to make the following i
 
 1. Single product should be inserted with its price with a single dash, 
 and all the products should be separated by single comma
-<br />
 ### Example 
 Input products: apple-50,banana-40,potato-30
 <br />
