@@ -10,5 +10,4 @@ public enum DealName {
         this.dealName = userCommand;
     }
 
-
 }

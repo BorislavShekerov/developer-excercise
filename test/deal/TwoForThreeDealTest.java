@@ -1,7 +1,6 @@
 package deal;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +8,6 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import deal.TwoForThreeDeal;
 import product.Product;
 
 public class TwoForThreeDealTest {

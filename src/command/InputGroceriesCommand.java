@@ -40,6 +40,8 @@ public class InputGroceriesCommand implements Command {
                 } catch (NumberFormatException e) {
                     System.out.println("Invalid price format for product: " + productName);
                 }
+            } else {
+                System.out.println("Invalid template for pair product-price. Product" + grocery + "will not be added");
             }
         }
     }

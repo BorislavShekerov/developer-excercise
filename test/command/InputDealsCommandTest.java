@@ -1,9 +1,7 @@
 package command;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-import command.InputDealsCommand;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -26,12 +24,11 @@ public class InputDealsCommandTest {
         productDataBase = mock(ProductDataBase.class);
         dealCreator = mock(DealCreator.class);
         inputDealsCommand = new InputDealsCommand(productDataBase);
-        inputDealsCommand.setDealCreator(dealCreator); // Set mock DealCreator
+        inputDealsCommand.setDealCreator(dealCreator);
     }
 
     @Test
     public void executeWithValidArgumentsTest() {
-        // Arrange
         String arguments = "two for three - apple, banana, tomato";
 
         DealName expectedDealName = DealName.TWO_FOR_THREE_DEAL;
@@ -54,30 +51,20 @@ public class InputDealsCommandTest {
 
     @Test
     public void testExecute_WithInvalidDealName() {
-        // Arrange
         String arguments = "invalid deal - apple, banana, tomato";
 
-        // Act
         inputDealsCommand.execute(arguments);
 
-        // Assert
-        // Verify that no deal is added to the ProductDataBase
         verify(productDataBase, never()).addDeal(any());
     }
 
     @Test
     public void testExecute_WithInvalidProducts() {
-        // Arrange
         String arguments = "two for three - apple, banana, invalid_product";
 
-        // Ensure the invalid product returns null
         when(productDataBase.searchProductByName("invalid_product")).thenReturn(null);
 
-        // Act
         inputDealsCommand.execute(arguments);
-
-        // Assert
-        // Verify that no deal is added to the ProductDataBase
         verify(productDataBase, never()).addDeal(any());
     }
 
@@ -112,5 +99,4 @@ public class InputDealsCommandTest {
         verify(productDataBase, never()).addDeal(any());
     }
 
-    // Add more test cases to cover other scenarios such as invalid arguments, empty arguments, etc.
 }

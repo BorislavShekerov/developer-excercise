@@ -50,16 +50,13 @@ public class CustomerBasketCommandTest {
             .thenReturn(new Product("tomato", 30));
         when(productDataBase.getDeals()).thenReturn(new ArrayList<>()); // No deals applied
 
-        // Act
         customerBasketCommand.execute(arguments);
 
-        // Assert
         assertEquals("The total is: 1aws 20c" + System.lineSeparator(), outputStreamCaptor.toString());
     }
 
     @Test
     public void executeWithValidProductsDealAppliedTest() {
-        // Arrange
         String arguments = "apple, banana, tomato";
         List<Product> products = new ArrayList<>();
         products.add(new Product("apple", 50));
@@ -71,7 +68,6 @@ public class CustomerBasketCommandTest {
             .thenReturn(new Product("banana", 40))
             .thenReturn(new Product("tomato", 30));
 
-        // Mock deal application
         Deal mockDeal = mock(Deal.class);
         when(mockDeal.qualifiesForDeal(any())).thenReturn(true);
         when(mockDeal.calculateDiscount(any())).thenReturn(10.0); // Mock discount
@@ -79,16 +75,13 @@ public class CustomerBasketCommandTest {
         deals.add(mockDeal);
         when(productDataBase.getDeals()).thenReturn(deals);
 
-        // Act
         customerBasketCommand.execute(arguments);
 
-        // Assert
         assertEquals("The total is: 1aws 10c" + System.lineSeparator(), outputStreamCaptor.toString());
     }
 
     @Test
     public void testExecute_WithNoSuchProduct() {
-        // Arrange
         String arguments = "apple, banana, tomato";
         List<Product> products = new ArrayList<>();
         products.add(new Product("apple", 50));
@@ -99,16 +92,13 @@ public class CustomerBasketCommandTest {
             .thenReturn(new Product("banana", 40))
             .thenReturn(null); // Mocking one product not found
 
-        // Act
         customerBasketCommand.execute(arguments);
 
-        // Assert
         assertEquals("Unknown products in the basket. Can't calculate the basket total" + System.lineSeparator(), outputStreamCaptor.toString());
     }
 
     @Test
     public void executeWithPriceOnlyInCloudsTest() {
-        // Arrange
         String arguments = "apple, tomato";
         List<Product> products = new ArrayList<>();
         products.add(new Product("apple", 50));
@@ -119,12 +109,9 @@ public class CustomerBasketCommandTest {
             .thenReturn(new Product("tomato", 30));
         when(productDataBase.getDeals()).thenReturn(new ArrayList<>()); // No deals applied
 
-        // Act
         customerBasketCommand.execute(arguments);
 
-        // Assert
         assertEquals("The total is: 80c" + System.lineSeparator(), outputStreamCaptor.toString());
     }
 
-    // Add more test cases to cover other scenarios, such as invalid products, products not found, etc.
 }

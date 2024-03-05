@@ -11,8 +11,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 
 public class CommandExecutorTest {
 
@@ -107,5 +105,4 @@ public class CommandExecutorTest {
         assertEquals(expectedOutput.trim(), outputStreamCaptor.toString().trim());
     }
 
-    // Add more tests for other commands similarly...
 }
