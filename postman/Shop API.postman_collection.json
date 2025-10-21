@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "a02bf248-a46b-4163-8d71-ccb8ca435473",
+		"name": "Shop API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/user",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"dan\",\n    \"lastName\": \"stoya\",\n    \"email\": \"dan@gmail.com\",\n    \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"dan@gmail.com\",\n    \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Checkout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"items\": [\n        \"apple\", \"banana\", \"banana\", \"potato\", \"tomato\", \"banana\", \"potato\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/checkout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"checkout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/item",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbG91ZHJ1aWQgSW5jIiwiYXVkIjoiU29mdHdhcmUgZGV2ZWxvcGVyIGNoYWxsYW5nZSIsImlhdCI6MTY4NzA3MTE4MSwic3ViIjoiYWRtaW5AZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUkVBRDpVU0VSIiwiUkVBRDpBRE1JTiIsIkNSRUFURTpBRE1JTiIsIlJFQUQ6SVRFTSIsIkNSRUFURTpJVEVNIiwiVVBEQVRFOklURU0iLCJERUxFVEU6SVRFTSJdLCJleHAiOjE2ODcwNzI5ODF9.Z9BKnU9J1RoL8Dzkl9cTY7OZo4ee2EyYkThZZVaeLD24pj3CjFOj7TO1mnfk1icAIXQpR1maJiE4ERyurlvoZw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"malini\",\n    \"price\": 20,\n    \"halfPrice\": \"false\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/item/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"item",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbG91ZHJ1aWQgSW5jIiwiYXVkIjoiU29mdHdhcmUgZGV2ZWxvcGVyIGNoYWxsYW5nZSIsImlhdCI6MTY4NzA3MDEzNSwic3ViIjoiYWRtaW5AZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUkVBRDpVU0VSIiwiUkVBRDpBRE1JTiIsIkNSRUFURTpBRE1JTiIsIlJFQUQ6SVRFTSIsIkNSRUFURTpJVEVNIiwiVVBEQVRFOklURU0iLCJERUxFVEU6SVRFTSJdLCJleHAiOjE2ODcwNzE5MzV9.T8L78GX2CoPgeKy5GXKsPLfr-IHMmRjETm3B2p45SskeA5o_77xEhT-jVi3-WmSGQ-bXA0y1d5JPZjBB92V-Uw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"kapini\",\n    \"price\": 50,\n    \"halfPrice\": \"false\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/item/1/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"item",
+								"1",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbG91ZHJ1aWQgSW5jIiwiYXVkIjoiU29mdHdhcmUgZGV2ZWxvcGVyIGNoYWxsYW5nZSIsImlhdCI6MTY4NzA3MTE4MSwic3ViIjoiYWRtaW5AZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUkVBRDpVU0VSIiwiUkVBRDpBRE1JTiIsIkNSRUFURTpBRE1JTiIsIlJFQUQ6SVRFTSIsIkNSRUFURTpJVEVNIiwiVVBEQVRFOklURU0iLCJERUxFVEU6SVRFTSJdLCJleHAiOjE2ODcwNzI5ODF9.Z9BKnU9J1RoL8Dzkl9cTY7OZo4ee2EyYkThZZVaeLD24pj3CjFOj7TO1mnfk1icAIXQpR1maJiE4ERyurlvoZw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/admin/item/1/remove",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"item",
+								"1",
+								"remove"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
